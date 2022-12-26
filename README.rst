@@ -113,6 +113,7 @@ Compute the index for a domain name label.
 For example:
 
     index_of_domain_name_label("google") => 1191294986
+
     index_of_domain_name_label("yahoo")  =>   64297428
 
 
