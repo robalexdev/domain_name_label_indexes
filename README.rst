@@ -106,6 +106,14 @@ For example:
 
     count_domains_with_length(2) => 1296
 
+Compute the index for a domain name label.
+
+    index_of_domain_name_label(label: str)
+
+For example:
+
+    index_of_domain_name_label("google") => 1191294986
+    index_of_domain_name_label("yahoo")  =>   64297428
 
 
 Credits

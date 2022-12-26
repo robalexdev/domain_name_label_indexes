@@ -202,7 +202,7 @@ def test_reverse():
     assert 36*36+37 == index_of_domain_name_label("0-1")
     assert 36*37*36+36*36+35 == index_of_domain_name_label("zzz")
 
-    YAHOO_INDEX = 64297428
+    YAHOO_INDEX = 6429742
     assert YAHOO_INDEX == index_of_domain_name_label("yahoo")
     assert "yahoo" == generate_domain_name_label(YAHOO_INDEX)
 
