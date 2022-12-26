@@ -146,7 +146,6 @@ def index_of_domain_name_label(label: str) -> int:
     while lower_bound + 1 < upper_bound:
         guess = (lower_bound + upper_bound) // 2
         guessed_domain = generate_domain_name_label(guess)
-        print(lower_bound, upper_bound, guess, guessed_domain, label)
         if guessed_domain > label:
             upper_bound = guess
         elif guessed_domain < label:
@@ -156,11 +155,9 @@ def index_of_domain_name_label(label: str) -> int:
 
     # check upper/lower
     guessed_domain = generate_domain_name_label(lower_bound)
-    print(guessed_domain)
     if guessed_domain == label:
         return lower_bound
     guessed_domain = generate_domain_name_label(upper_bound)
-    print(guessed_domain)
     if guessed_domain == label:
         return upper_bound
     assert False
