@@ -7,9 +7,6 @@ from setuptools import setup, find_packages
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-with open('HISTORY.rst') as history_file:
-    history = history_file.read()
-
 requirements = [ ]
 
 test_requirements = ['pytest>=3', ]
@@ -31,7 +28,7 @@ setup(
     description="Computing a domain name by it's index",
     install_requires=requirements,
     license="MIT license",
-    long_description=readme + '\n\n' + history,
+    long_description=readme,
     include_package_data=True,
     keywords='domain_name_label_indexes',
     name='domain_name_label_indexes',
