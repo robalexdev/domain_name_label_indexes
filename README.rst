@@ -6,13 +6,6 @@ Domain Name Label Indexes
 .. image:: https://img.shields.io/pypi/v/domain_name_label_indexes.svg
         :target: https://pypi.python.org/pypi/domain_name_label_indexes
 
-.. image:: https://img.shields.io/travis/ralexander-phi/domain_name_label_indexes.svg
-        :target: https://travis-ci.com/ralexander-phi/domain_name_label_indexes
-
-.. image:: https://readthedocs.org/projects/domain-name-label-indexes/badge/?version=latest
-        :target: https://domain-name-label-indexes.readthedocs.io/en/latest/?version=latest
-        :alt: Documentation Status
-
 This library helps generate minimal domain name labels in an ordered fashion.
 The following rules apply:
 
