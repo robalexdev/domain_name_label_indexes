@@ -31,16 +31,27 @@ Domains are orders such that shorter domains occur earlier and domains of the sa
 The ordering begins as:
 
     0    -> "0"
+
     1    -> "1"
+
     ...
+
     10   -> "a"
+
     ...
+
     35   -> "z"
+
     36   -> "00"
+
     ...
+
     72   -> "10"
+
     ...
+
     1331 -> "zz"
+
     1332 -> "0-0"
 
 * Free software: MIT license
@@ -55,6 +66,7 @@ Given an index, compute the corresposing domain name.
 For example:
 
     generate_domain_name_label(0) => "0"
+
     generate_domain_name_label(37) => "01"
 
 
@@ -64,6 +76,7 @@ Given an index, compute the length of the domain name.
 For example:
 
     compute_domain_length(0) => 1
+
     compute_domain_length(36) => 2
 
 
@@ -73,6 +86,7 @@ Find the first index that produces a domain of a given length.
 For example:
 
     first_index_with_domain_length(1) => 0
+
     first_index_with_domain_length(2) => 36
 
 
@@ -82,6 +96,7 @@ Compute the number of domains that have a given length.
 For example:
 
     count_domains_with_length(1) => 36
+
     count_domains_with_length(2) => 1296
 
 
