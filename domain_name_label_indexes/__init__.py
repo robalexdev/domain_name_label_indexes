@@ -3,7 +3,7 @@ import functools
 
 __author__ = """Robert Alexander"""
 __email__ = "raalexander.phi@gmail.com"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 
 _MAX_LABEL_LENGTH = 63
