@@ -107,3 +107,37 @@ def _trim_most_significant_as_alphanumeric(index: int, len_remaining: int, is_fi
     remainder = index % increment_divisor
     return first_char, remainder
 
+def index_of_domain_name_label(label: str) -> int:
+    if "--" in label:
+        raise Exception("A domain name label cannot contain two hyphens in a row")
+
+    for c in label:
+        if c not in _DOMAIN_CHARS_WITH_HYPHEN:
+            raise Exception(f"A domain name label cannot contain {c}")
+
+    # A binary search is fast enough for now
+    lower_bound = first_index_with_domain_length(len(label))
+    upper_bound = first_index_with_domain_length(len(label)+1)
+
+    while lower_bound + 1 < upper_bound:
+        guess = (lower_bound + upper_bound) // 2
+        guessed_domain = generate_domain_name_label(guess)
+        print(lower_bound, upper_bound, guess, guessed_domain, label)
+        if guessed_domain > label:
+            upper_bound = guess
+        elif guessed_domain < label:
+            lower_bound = guess
+        else:
+            return guess
+
+    # check upper/lower
+    guessed_domain = generate_domain_name_label(lower_bound)
+    print(guessed_domain)
+    if guessed_domain == label:
+        return lower_bound
+    guessed_domain = generate_domain_name_label(upper_bound)
+    print(guessed_domain)
+    if guessed_domain == label:
+        return upper_bound
+    assert False
+

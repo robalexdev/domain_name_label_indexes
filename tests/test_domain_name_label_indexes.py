@@ -4,7 +4,7 @@
 
 import pytest
 
-from domain_name_label_indexes import count_domains_with_length, generate_domain_name_label, _DOMAIN_CHARS_WITH_HYPHEN, _DOMAIN_CHARS, compute_domain_length, first_index_with_domain_length
+from domain_name_label_indexes import count_domains_with_length, generate_domain_name_label, _DOMAIN_CHARS_WITH_HYPHEN, _DOMAIN_CHARS, compute_domain_length, first_index_with_domain_length, index_of_domain_name_label
 
 
 def test_success():
@@ -150,7 +150,7 @@ def test_first_index():
     assertEqual(first_index_with_domain_length(4), 36 + 36**2 + 36*37*36)
 
 # This test takes a long time with large numbers
-BRUTE_TEST_STOP_AT = 10_000_000
+BRUTE_TEST_STOP_AT = 1_000
 def test_matches_brute():
     index = 0
     previous = ""
@@ -193,9 +193,22 @@ def gen_brute():
                 yield item
         length += 1
 
-def test_domain_names_between():
-    assert "yahoo" == generate_domain_name_label(64297428)
-    assert "google" == generate_domain_name_label(1191294986)
+def test_reverse():
+    assert 0 == index_of_domain_name_label("0")
+    assert 35 == index_of_domain_name_label("z")
+    assert 36 == index_of_domain_name_label("00")
+    assert 36*36+35 == index_of_domain_name_label("zz")
+    assert 36*36+36 == index_of_domain_name_label("0-0")
+    assert 36*36+37 == index_of_domain_name_label("0-1")
+    assert 36*37*36+36*36+35 == index_of_domain_name_label("zzz")
+
+    YAHOO_INDEX = 64297428
+    assert YAHOO_INDEX == index_of_domain_name_label("yahoo")
+    assert "yahoo" == generate_domain_name_label(YAHOO_INDEX)
+
+    GOOGLE_INDEX = 1191294986
+    assert GOOGLE_INDEX == index_of_domain_name_label("google")
+    assert "google" == generate_domain_name_label(GOOGLE_INDEX)
 
 def assertEqual(a, b):
     assert a == b
