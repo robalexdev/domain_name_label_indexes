@@ -60,9 +60,11 @@ The ordering begins as:
 Features
 --------
 
-    generate_domain_name_label(index: int)
 
 Given an index, compute the corresposing domain name.
+
+    generate_domain_name_label(index: int)
+
 For example:
 
     generate_domain_name_label(0) => "0"
@@ -70,9 +72,11 @@ For example:
     generate_domain_name_label(37) => "01"
 
 
-    compute_domain_length(index: int)
 
 Given an index, compute the length of the domain name.
+
+    compute_domain_length(index: int)
+
 For example:
 
     compute_domain_length(0) => 1
@@ -80,9 +84,10 @@ For example:
     compute_domain_length(36) => 2
 
 
+Find the first index that produces a domain of a given length.
+
     first_index_with_domain_length(length: int)
 
-Find the first index that produces a domain of a given length.
 For example:
 
     first_index_with_domain_length(1) => 0
@@ -90,9 +95,11 @@ For example:
     first_index_with_domain_length(2) => 36
 
 
-    count_domains_with_length(length: int)
 
 Compute the number of domains that have a given length.
+
+    count_domains_with_length(length: int)
+
 For example:
 
     count_domains_with_length(1) => 36
